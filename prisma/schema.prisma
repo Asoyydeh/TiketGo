@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  nama     String
+  username String @unique
+  password String
+}
+
+model Harga {
+  id     Int    @id @default(autoincrement())
+  status String
+  kelas  String
+  harga  Int
+}
+
+model Penumpang {
+  id           Int      @id @default(autoincrement())
+  nama         String
+  alamat       String
+  kereta       String
+  gerbong      String
+  stasiun_awal String
+  stasiun_tujuan String
+  jam_berangkat String
+  jam_tiba     String
+  tanggal      String
+  dewasa       Int
+  anak         Int
+  total        Int
+  created_at   DateTime @default(now())
+}
